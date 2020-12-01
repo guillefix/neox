@@ -1,0 +1,17 @@
+created: 20201130233458068
+creator: guillefix
+modified: 20201130235122272
+modifier: guillefix
+tags: 
+title: CommonAvatarBuilder
+type: text/vnd.tiddlywiki
+
+
+This class sets up the avatar (the [[Slot]]) which a user automatically gets when they join a session. This could be their default avatar, obtained from the [[cloud|Neos cloud]], or a default avatar set up for the world.
+
+The main function here is `BuildAvatar(UserRoot userRoot)`. (see [[CommonAvatarBuilder.BuildAvatar]]
+
+
+[[CommonAvatarBuilder.SpawnCloudAvatar]]
+
+

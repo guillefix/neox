@@ -1,0 +1,11 @@
+created: 20201201003629552
+creator: guillefix
+modified: 20201201003635400
+modifier: guillefix
+tags: 
+title: SyncMessage.Decode
+type: text/vnd.tiddlywiki
+
+Decodes a SyncMessage.
+
+This may involve decompressing (using LZ algorithm) if the message is larger than 200bytes in payload. Otherwise it just reads the headers and payload.

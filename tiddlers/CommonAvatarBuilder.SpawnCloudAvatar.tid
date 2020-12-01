@@ -1,0 +1,11 @@
+created: 20201201003702057
+creator: guillefix
+modified: 20201201003710385
+modifier: guillefix
+tags: 
+title: CommonAvatarBuilder.SpawnCloudAvatar
+type: text/vnd.tiddlywiki
+
+This function fetches the default avatar from the cloud (the record Id is stored in a cloud variable, and it is used to retrieve a [[Record]], from which the url asset representing the TreeData of the avatar is obtained. This data is then gathered using that assetURL.
+
+The loaded avatar is then equipped into the user using [[AvatarManager.Equip]] for the AvatarManager that was put in the user root slot by [[CommonAvatarBuilder.BuildAvatar]].

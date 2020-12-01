@@ -1,0 +1,10 @@
+created: 20201130235414270
+creator: guillefix
+modified: 20201201003646419
+modifier: guillefix
+title: AvatarManager.Equip
+type: text/vnd.tiddlywiki
+
+This function "equips" an avatar to an user.
+
+What this mainly implies is that the [[AvatarObjectSlot]]s in the user root hierarchy (set up by [[CommonAvatarBuilder.BuildDevices]]) are matched (via two nested for loops) to the [[AvatarPoseNode]]s in the avatar.

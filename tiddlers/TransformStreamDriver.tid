@@ -1,0 +1,8 @@
+created: 20201130235803384
+creator: guillefix
+modified: 20201130235941382
+modifier: guillefix
+title: TransformStreamDriver
+type: text/vnd.tiddlywiki
+
+A [[Component]] which connects [[ValueStream]]s for position and rotation and drives target fields. This is used to drive the proxy slots in a [[User root slot]] by the streams coming from the tracked [[Input device]]s corresponding to [[BodyNode]]s

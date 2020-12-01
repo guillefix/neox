@@ -1,0 +1,22 @@
+created: 20201201002042929
+creator: guillefix
+modified: 20201201004342162
+modifier: guillefix
+tags: 
+title: Spawning an object into the world
+type: text/vnd.tiddlywiki
+
+
+You can use [[InventoryBrowser.Spawn]] functions. But those are private, you [[can use reflection|Accessing private fields with reflection]], but that is inefficient, and so an alternative is sometimes preferred. Here's a way (inspired by how [[CommonAvatarBuilder.SpawnCloudAvatar]] works.
+
+```cs
+Engine engine = FrooxEngine.Engine.Current;
+Uri uri = new Uri(neosdb);
+ValueTaskAwaiter<string> gatherAwaiter = engine.AssetManager.RequestGather(uri, Priority.Urgent).GetAwaiter();
+string nodeString = gatherAwaiter.GetResult();
+DataTreeDictionary node = DataTreeConverter.Load(nodeString, uri);
+UniLog.Log("slot");
+UniLog.Log(slot.ToString());
+slot.LoadObject(node);
+slot = slot.GetComponent<InventoryItem>((Predicate<InventoryItem>)null, false)?.Unpack((List<Slot>)null) ?? slot;
+```

@@ -1,0 +1,37 @@
+created: 20201201000141395
+creator: guillefix
+modified: 20201201002016195
+modifier: guillefix
+title: Session
+type: text/vnd.tiddlywiki
+
+This class manages two things mainly:
+
+* Joining a session
+* Updating the data in a session, by processing incoming messages from other users in the session, and sending messages with updates to other users.
+
+Joining a session occurs in [[Session.ConnectTo]]
+
+the managing of messages happens mainly in three functions, each of which of which is run in a separate thread, in order to utilize concurrency effectively (which is particularly useful for IO tasks like this). These are:
+
+* [[Session.SyncLoop]]
+* [[Session.EncodeLoop]]
+* [[Session.DecodeLoop]]
+
+
+!!__[[Session.DecodeLoop]]__
+
+When a new message is received from the network, the function [[Session.OnNewData]] is called. It adds the message to [[Session.RawInMessages]] (which is a SpinQueue, a kind of Queue which is thread-safe, because this is communicating accross threads).
+
+[[Session.DecodeLoop]] then reads messages from the [[Session.RawInMessages]] queue. It Decodes the messages using [[SyncMessage.Decode]]. Depending on the type of [[SyncMessage]], it does slightly different things (for example if it is a stream, and this user is the Host ([[World.IsAuthority]]), then it enqueues it to transmit to all other clients via [[Session.EnqueueForTransmission]]). But regardless of message type, it enqueues it for processing via [[Session.EnqueueForProcessing]]
+
+!!__[[Session.SyncLoop]]__
+
+[[Session.SyncLoop]] reads from the messages in the [[Session.messagesToProcess]] queue, and applies the necessary changes depending on the type of [[SyncMessage]] in [[Session.ProcessMessage]]. It also checks that the messages are valid. 
+
+It then collects messages representing changes in the world since the last update (via [[World.SyncController.CollectDeltaMessages]], [[World.SyncController.EncodeFullBatch]], and [[World.SyncController.GatherStreams]]), and enqueues those changes via [[Session.EnqueueForTransmission]] to [[Session.messagesToTransmit]]. 
+
+!!__[[Session.EncodeLoop]]__
+
+Finally, [[Session.EncodeLoop]] reads messages from the [[Session.messagesToTransmit]] queue, encodes them using [[SyncMessage.Encode]], and sends them using [[NetworkManager.TransmitData]].
+

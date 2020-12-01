@@ -1,0 +1,25 @@
+created: 20201130234319900
+creator: guillefix
+modified: 20201201003732605
+modifier: guillefix
+tags: CommonAvatarBuilder
+title: CommonAvatarBuilder.BuildAvatar
+type: text/vnd.tiddlywiki
+
+This function sets up the user root slot, when a user joins a new session. It populates it with the right components and slots.
+
+It first sets up the User [[Dynamic variable space]]
+
+It first sets up devices using [[CommonAvatarBuilder.BuildDevices]]. This creates the slots named LeftControoler, Left Hand, head, etc, which will "puppeteer" the avatar.
+
+It attaches a [[TrackerController]], which keeps track of whether new input devices are added. 
+
+It then sets up the streams controlling the position and rotation of the user root slot, using `SetupStreamSync`, whith attaches a [[TransformStreamDriver]] to the user root slot, with newly set up streams created with [[CommonAvatarBuilder.GetOrAddPositionStream]], and [[CommonAvatarBuilder.GetOrAddRotationStream]].
+
+It then sets up the [[LocomotionController]]
+
+It then sets up the nameplate, badges.
+
+It then checks if the CommonAvatarBuilder of this world has an avatar template, which the user should be equipped into if it is set up.
+
+If it isn't it will 

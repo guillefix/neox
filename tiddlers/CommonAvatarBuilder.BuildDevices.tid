@@ -1,0 +1,9 @@
+created: 20201130235544992
+creator: guillefix
+modified: 20201130235800289
+modifier: guillefix
+title: CommonAvatarBuilder.BuildDevices
+type: text/vnd.tiddlywiki
+
+
+This function (called by [[CommonAvatarBuilder.BuildAvatar]]) mainly sets up the streams and the [[TransformStreamDriver]]s for the devices which the user currently has active. Each of these will have a corresponding BodyNode, an AvatarObjectSlot, and a TransformStreamDriver
