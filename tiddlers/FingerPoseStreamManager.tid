@@ -1,0 +1,14 @@
+created: 20201201192756869
+creator: guillefix
+modified: 20201201193259549
+modifier: guillefix
+title: FingerPoseStreamManager
+type: text/vnd.tiddlywiki
+
+It sets up the streams for finger pose, and makes them available for other components (e.g. HandPoser) to use.
+
+In its `Setup` function, it registers the streams using [[User.GetStreamOrAdd]]. It sets up two boolean [[streams|ValueStream]] to keep track of whether each of the hands are tracking, and then a floatQ [[MultiValueStream]] to keep track of the finger node rotations. 
+
+FingerPoseStreamManager also updates the values of these streams in its OnCommonUpdate function, by querying the values from the the [[Hand]] [[InputDevice]]s, which it gets via [[Input.GetDevice]]<Hand>. It also keeps a boolean variable which stores whether the metacarpals are being tracked.
+
+It makes the data for a particular finger BodyNode for other components via its `TryGetFingerData` function.

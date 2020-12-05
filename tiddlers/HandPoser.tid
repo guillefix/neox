@@ -1,0 +1,10 @@
+created: 20201201193305818
+creator: guillefix
+modified: 20201201193448824
+modifier: guillefix
+title: HandPoser
+type: text/vnd.tiddlywiki
+
+This [[Component]] uses the data from a linked FingerPoseStreamManager to set up the transforms of the finger slots in an avatar.
+
+Path: Users/Common Avatar System/Fingers

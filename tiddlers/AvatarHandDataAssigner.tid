@@ -1,0 +1,13 @@
+created: 20201201224142384
+creator: guillefix
+modified: 20201201224224773
+modifier: guillefix
+title: AvatarHandDataAssigner
+type: text/vnd.tiddlywiki
+
+This component mainly deals with linking the finger data stream in the User's FingerPoseStreamManager, to the HandPoser of an Avatar, upon equipping.
+
+The TargetReference in AvatarFingerPoseSourceAssigner is a SyncRef of a SyncRef...
+Its Target SyncRef is set to point to the HandPoser.PoseSource, inside VRIKAvatar.SetupHand. 
+And then on equip, AvatarFingerPoseSourceAssigner.OnEquip assigns the Target of that SyncRef (i.e. the Target of HandPoser.PoseSource, which is also the Target of the Target of TargetReference) to point to the Target of the FingerPoseSource of the AvatarFingerPoseInfo in the User, which indeed is the FingerPoseStreamManager. Damn
+https://wiki.c2.com/?ThreeStarProgrammer

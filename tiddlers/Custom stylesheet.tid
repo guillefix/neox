@@ -1,0 +1,12 @@
+created: 20201201011130941
+creator: guillefix
+modified: 20201201011255935
+modifier: guillefix
+tags: $:/tags/Stylesheet
+title: Custom stylesheet
+type: text/vnd.tiddlywiki
+
+
+.tc-editor-toolbar button {
+fill: #404040
+}

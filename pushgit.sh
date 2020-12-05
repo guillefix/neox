@@ -1,6 +1,8 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
 
+cd /home/guillefix/neox
 git add -A
 git commit -m "\"updated neox\""
-git push origin main
+git push -u https://guillefix:Almacayo333&@github.com/guillefix/neox.git main
+#git push origin main

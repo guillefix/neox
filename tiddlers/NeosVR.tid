@@ -1,15 +1,19 @@
 created: 20201130233330765
 creator: guillefix
-modified: 20201130233456327
+modified: 20201201193809260
 modifier: guillefix
 tags: 
 title: NeosVR
 type: text/vnd.tiddlywiki
 
 
-NeosVR runs as an Unity application. This Unity application loads [[FrooxEngine]] via [[UnityNeos]]
+NeosVR runs on top of an Unity application. This Unity application loads [[FrooxEngine]] stuff via [[UnityNeos]].
 
-__Important classes__
+FrooxEngine has most of the functionality except graphics, and some other low level things for things like physics and audio, which use some Unity functionality, as well as other libraries.
+
+FrooxEngine also relies on some foundation libraries, like BaseX, CodeX, MathX, and CloudX.
+
+!!!__Important classes__
 
 [[World]]
 
@@ -18,3 +22,7 @@ __Important classes__
 [[Userspace]]
 
 [[LogiX]]
+
+!!!__[[Component]]s__
+
+[[CommonAvatarBuilder]]

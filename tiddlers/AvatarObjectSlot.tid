@@ -1,0 +1,10 @@
+created: 20201201031504469
+creator: guillefix
+modified: 20201201031954645
+modifier: guillefix
+title: AvatarObjectSlot
+type: text/vnd.tiddlywiki
+
+A component that represents one of the tracked devices which are paired to AvatarPoseNode components when [[equipping|AvatarManager.Equip]] an [[Avatar]].
+
+The [[AvatarObjectSlot.GetFilteredPoseData]] function returns the position and rotation (via its `out` type arguments) of the slot with the AvatarObjectSlot component, relative to the ActiveUserRoot.Slot of this slot. This transform information is used by the AvatarPoseNode component paired to this AvatarObjectSlot, on its [[OnCommonUpdate|AvatarPoseNode.OnCommonUpdate]].

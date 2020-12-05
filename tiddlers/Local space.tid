@@ -1,0 +1,8 @@
+created: 20201201032130399
+creator: guillefix
+modified: 20201201032206413
+modifier: guillefix
+title: Local space
+type: text/vnd.tiddlywiki
+
+The ''local space'' of a [[Slot]] refers to the coordinate system defined by the [[parent|Parent slot]] of that slot.

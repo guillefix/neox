@@ -1,0 +1,10 @@
+created: 20201201032001272
+creator: guillefix
+modified: 20201201032520609
+modifier: guillefix
+title: AvatarPoseNode.OnCommonUpdate
+type: text/vnd.tiddlywiki
+
+In this OnCommonUpdate, the transform information of the paired AvatarObjectSlot (if any), is gathered and transformed to the [[Local space]] of the slot where the AvatarPoseNode is attached
+
+What this means is that after we equip an avatar (which pairs the AvatarObjectSlot and the AvatarPoseNode of corresponding [[BodyNode]]s), we can succesfully //puppeteer// the avatar by the position of our AvatarObjectSlot's driving the avatar's AvatarPoseNode's transform!
